@@ -46,6 +46,26 @@ class SiteController < ApplicationController
 end
 ```
 
+For support [ngx_http_enhanced_memcached_module](https://github.com/bpaquet/ngx_http_enhanced_memcached_module) use option `enhanced_module`:
+
+```ruby
+class SiteController < ApplicationController
+  memcaches_page :index, enhanced_module: true
+end
+```
+
+Note: `compress` options in `config.cache_store` must disabled
+
+
+You can turn compress with option `compress`:
+
+```ruby
+class SiteController < ApplicationController
+  memcaches_page :index, enhanced_module: true, compress: true
+end
+```
+
+
 ## Contributing
 
 1. Fork it
