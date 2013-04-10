@@ -24,7 +24,7 @@ module MemcachesPage
 
     if options[:enhanced_module] == true
       prepend_body << "EXTRACT_HEADERS"
-      prepend_body << "Content-Type: #{response.content_type}"
+      prepend_body << "Content-Type: #{response.content_type}; charset=utf-8"
       if options[:compress] == true
         prepend_body << "Content-Encoding: gzip"
       end
