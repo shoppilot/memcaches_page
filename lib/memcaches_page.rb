@@ -31,6 +31,9 @@ module MemcachesPage
       prepend_body << "\r\n"
     end
 
-    self.class.memcache_page(prepend_body.join("\r\n") + body, request.fullpath, options)
+    key = options[:key] || request.fullpath
+    key = key.respond_to?(:call) ? instance_eval(&key) : key
+
+    self.class.memcache_page(prepend_body.join("\r\n") + body, key, options)
   end
 end
